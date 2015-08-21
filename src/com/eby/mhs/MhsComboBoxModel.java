@@ -40,21 +40,17 @@ public class MhsComboBoxModel {
         Dosen t = list.remove(index);
         return t;
     }
-    
-     public void removeAllElement(){
+
+    public void removeAllElement() {
         int size = list.size();
-        for (int i=0; i<size; i++){
+        for (int i = 0; i < size; i++) {
             list.remove(i);
         }
-//        this.initColumn();
-        
+
     }
-     
+
     public ObservableList<String> getItems() {
         return items;
     }
-
-    
-    
 
 }

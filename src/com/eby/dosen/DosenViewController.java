@@ -142,12 +142,17 @@ public class DosenViewController implements Initializable {
 
     @FXML
     private void hapusAction(ActionEvent event) {
+        //mendeteksi index pada tableDosen dengan melakukan klik pada cell
         int index = tableDosen.getSelectionModel().getSelectedIndex();
         if (index != -1) {
+            //mengambil index tersebut dan memasukkan kedalam object
             Dosen d = tableModel.getItem().get(index);
+            //Melakukan proses hapus object yang berisi index
             model.delete(d);
             con.dialog(Alert.AlertType.INFORMATION, "data berhasil dihapus", null);
+            //reset ulang textfield
             reset();
+            //menampilkan data terbaru setelah proses hapus
             loadData();
         } else {
             con.dialog(Alert.AlertType.WARNING, "pilih data", null);
@@ -159,8 +164,10 @@ public class DosenViewController implements Initializable {
     private void cariAction(KeyEvent event) {
         String keyword = txtCari.getText();
         if (keyword.equals("")) {
+            //melakukan loadData jika keyword kosong/null/""
             loadData();
         } else {
+            //melakukan pencarian ke database jika keyword tidak kosong/null/""
             tableModel.getItem().remove(0, tableModel.getItem().size());
             tableModel.getItem().addAll(model.find(keyword));
             tableDosen.setItems(tableModel.getItem());
@@ -172,8 +179,8 @@ public class DosenViewController implements Initializable {
         fadeOut();
     }
 
+    //Animasi masuk melalui sisi kiri
     public void fadeIn() {
-//        new FadeInLeftTransition(paneView).play();
         new FadeInLeftTransition(gridPane).play();
         new FadeInLeftTransition(btTambah).play();
         new FadeInLeftTransition(btHapus).play();
@@ -187,6 +194,7 @@ public class DosenViewController implements Initializable {
         new FadeInLeftTransition(txtClose).play();
     }
 
+    //Animasi keluar ke sisi kanan
     public void fadeOut() {
         new FadeOutRightTransition(paneView).play();
         new FadeOutRightTransition(gridPane).play();
