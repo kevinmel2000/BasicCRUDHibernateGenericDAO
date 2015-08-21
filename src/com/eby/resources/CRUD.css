@@ -1,0 +1,158 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 16, 2015, 6:41:24 PM
+    Author     : eby
+*/
+
+.radius-menu{
+    -fx-background-radius: 100;
+}
+
+.button-menu-color{
+    -fx-background-color: #455A8a;
+}
+
+.button-menu-color:hover{
+    -fx-border-color: white;
+    -fx-border-style: solid;
+    -fx-border-radius: 100;
+}
+
+.radius{
+    -fx-background-radius: 0;
+}
+
+.background-menu{
+    -fx-background-color: #455A64;
+}
+
+.button-color{
+    -fx-background-color: #455A64;
+}
+.button-color:hover{
+    -fx-border-color: white;
+    -fx-border-style: solid;
+}
+
+.button-color:filled{
+    -fx-border-color: white;
+    -fx-border-style: solid;
+}
+
+.button-color:filled{
+    -fx-border-color: white;
+    -fx-border-style: solid;
+}
+
+.text-field{
+    -fx-background-color: #d3d3d3;
+    -fx-background-radius: 0;
+    -fx-border-color: white;
+    -fx-border-style: solid;
+    -fx-text-fill: black;
+    -fx-text-color: black;
+}
+.text-field:hover{
+    -fx-background-color: #f8f8f8;
+    -fx-background-radius: 0;
+    -fx-border-style: solid;
+}
+
+.combo-box{
+    -fx-background-color: #d3d3d3;
+    -fx-background-radius: 0;
+    -fx-border-color: white;
+    -fx-border-style: solid;
+    -fx-text-fill: black;
+    -fx-text-color: black;
+}
+
+.combo-box:hover{
+    -fx-background-color: #f8f8f8;
+    -fx-background-radius: 0;
+    -fx-border-style: solid;
+}
+
+.background-menu-sub{
+    -fx-background-color: #607D8B;
+}
+
+.tambah-button{
+    -fx-background-color: #616AE1;
+}
+
+.tambah-button:hover{
+    -fx-border-color: white;
+    -fx-border-style: solid;
+}
+
+.ubah-button{
+    -fx-background-color: #E19E2A;
+}
+
+.ubah-button:hover{
+    -fx-border-color: white;
+    -fx-border-style: solid;
+}
+
+.hapus-button{
+    -fx-background-color: #E12A2B;
+}
+.hapus-button:hover{
+    -fx-border-color: white;
+    -fx-border-style: solid;
+}
+.header{
+    -fx-background-color: #455A8a;
+}
+
+.close-button{
+    -fx-background-color: #455A8a;
+}
+.close-button:hover{
+    -fx-background-color: #FF5252;
+}
+
+.facebook-color{
+    -fx-background-color: #3b5998;
+}
+
+.facebook-color:hover{
+    -fx-border-color: white;
+    -fx-border-style: solid;
+}
+
+.github-color{
+    -fx-background-color: #455A64;
+}
+
+.github-color:hover{
+    -fx-border-color: white;
+    -fx-border-style: solid;
+}
+
+.wordpress-color{
+    -fx-background-color: #16499a;
+}
+
+.wordpress-color:hover{
+    -fx-border-color: white;
+    -fx-border-style: solid;
+}
+
+.lifeCode-color{
+    -fx-background-color: #388E3C;
+}
+
+.lifeCode-color:hover{
+    -fx-border-color: white;
+    -fx-border-style: solid;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #42539d;
+}

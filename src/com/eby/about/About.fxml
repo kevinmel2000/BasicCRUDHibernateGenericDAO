@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="paneView" prefHeight="540.0" prefWidth="1000.0" styleClass="background-menu-sub" stylesheets="@../resources/CRUD.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.eby.about.AboutController">
+   <children>
+      <Text fx:id="txtThank" fill="WHITE" layoutX="60.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thank You . . . . . . .">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtFind" fill="WHITE" layoutX="219.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Find me on :">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <Button fx:id="btFb" alignment="BOTTOM_CENTER" layoutX="221.0" layoutY="175.0" mnemonicParsing="false" onAction="#fbAction" prefHeight="62.0" prefWidth="100.0" text="Facebook" textFill="WHITE">
+         <styleClass>
+            <String fx:value="radius" />
+            <String fx:value="facebook-color" />
+         </styleClass>
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <FontAwesomeIconView fx:id="fbIcon" fill="WHITE" glyphName="FACEBOOK" layoutX="261.0" layoutY="218.0" size="34" />
+      <Button fx:id="btGit" alignment="BOTTOM_CENTER" layoutX="336.0" layoutY="175.0" mnemonicParsing="false" onAction="#gitAction" prefHeight="62.0" prefWidth="100.0" text="Github" textFill="WHITE">
+         <styleClass>
+            <String fx:value="radius" />
+            <String fx:value="github-color" />
+         </styleClass>
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <FontAwesomeIconView fx:id="gitIcon" fill="WHITE" glyphName="GITHUB" layoutX="372.0" layoutY="218.0" size="34" />
+      <Text fx:id="txtVisit" fill="WHITE" layoutX="221.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Visit :">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <Button fx:id="btWpe" alignment="BOTTOM_CENTER" layoutX="221.0" layoutY="311.0" mnemonicParsing="false" onAction="#wpeAction" prefHeight="62.0" prefWidth="100.0" text="eby007" textFill="WHITE">
+         <styleClass>
+            <String fx:value="radius" />
+            <String fx:value="wordpress-color" />
+         </styleClass>
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <FontAwesomeIconView fx:id="wpeIcon" fill="WHITE" glyphName="WORDPRESS" layoutX="254.0" layoutY="347.0" size="34" />
+      <Button fx:id="btWpl" alignment="BOTTOM_CENTER" layoutX="336.0" layoutY="311.0" mnemonicParsing="false" onAction="#wplAction" prefHeight="62.0" prefWidth="100.0" text="LifeCode" textFill="WHITE">
+         <font>
+            <Font size="9.0" />
+         </font>
+         <styleClass>
+            <String fx:value="radius" />
+            <String fx:value="lifeCode-color" />
+         </styleClass>
+      </Button>
+      <FontAwesomeIconView fx:id="wplIcon" fill="WHITE" glyphName="WORDPRESS" layoutX="369.0" layoutY="347.0" size="34" />
+      <Text fx:id="txtClose" fill="WHITE" layoutX="958.0" layoutY="17.0" onMouseClicked="#closeAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Close">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

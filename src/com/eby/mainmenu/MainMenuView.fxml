@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.weathericons.*?>
+<?import de.jensd.fx.glyphs.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1200.0" styleClass="background-menu" stylesheets="@../resources/CRUD.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.eby.mainmenu.MainMenuViewController">
+   <children>
+      <AnchorPane prefHeight="60.0" prefWidth="1220.0" styleClass="header">
+         <children>
+            <FontAwesomeIconView fill="WHITE" glyphName="MORTAR_BOARD" layoutX="23.0" layoutY="50.0" size="55" />
+            <Text fill="WHITE" layoutX="102.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ayoooo semangat brooooo" />
+            <FontAwesomeIconView fill="WHITE" glyphName="CODE" layoutX="1130.0" layoutY="31.0" size="34" />
+            <Text fill="WHITE" layoutX="1118.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Still Code" />
+            <FontAwesomeIconView fill="WHITE" glyphName="BULLHORN" layoutX="284.0" layoutY="38.0" size="21" />
+            <Button fx:id="closeButton" layoutX="1180.0" mnemonicParsing="false" onAction="#closeAction" prefWidth="40.0">
+               <styleClass>
+                  <String fx:value="radius" />
+                  <String fx:value="close-button" />
+               </styleClass>
+            </Button>
+            <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" layoutX="1194.0" layoutY="18.0" onMouseClicked="#closeMouse" size="13" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="btMenu" layoutX="13.0" layoutY="248.0" mnemonicParsing="false" onMousePressed="#menuAction" prefHeight="70.0" prefWidth="70.0">
+         <styleClass>
+            <String fx:value="radius-menu" />
+            <String fx:value="button-menu-color" />
+         </styleClass></Button>
+      <FontAwesomeIconView fx:id="iconMenu" fill="WHITE" glyphName="BARS" layoutX="39.0" layoutY="291.0" onMousePressed="#iconMenuAction" size="21" />
+      <Button fx:id="btMahasiswa" alignment="BOTTOM_CENTER" layoutX="119.0" layoutY="181.0" mnemonicParsing="false" onAction="#mhsAction" prefHeight="62.0" prefWidth="100.0" text="Mahasiswa" textFill="WHITE">
+         <styleClass>
+            <String fx:value="radius" />
+            <String fx:value="button-color" />
+         </styleClass></Button>
+      <Button fx:id="btDosen" alignment="BOTTOM_CENTER" layoutX="119.0" layoutY="248.0" mnemonicParsing="false" onAction="#dosenAction" prefHeight="62.0" prefWidth="100.0" text="Dosen" textFill="WHITE">
+         <styleClass>
+            <String fx:value="radius" />
+            <String fx:value="button-color" />
+         </styleClass></Button>
+      <FontAwesomeIconView fx:id="dosenIcon" fill="WHITE" glyphName="USER" layoutX="156.0" layoutY="284.0" onMouseClicked="#iconDosenAction" size="34" />
+      <FontAwesomeIconView fx:id="mhsIcon" fill="WHITE" glyphName="MORTAR_BOARD" layoutX="148.0" layoutY="216.0" onMouseClicked="#iconMhsAction" size="34" />
+      <AnchorPane fx:id="paneView" layoutX="220.0" layoutY="60.0" prefHeight="540.0" prefWidth="1000.0" />
+      <FontAwesomeIconView fx:id="hideIcon" fill="WHITE" glyphName="ANGLE_LEFT" layoutX="108.0" layoutY="290.0" onMouseClicked="#hideAction" size="21" />
+      <Button fx:id="btAbout" alignment="BOTTOM_CENTER" layoutX="119.0" layoutY="315.0" mnemonicParsing="false" onAction="#aboutAction" prefHeight="62.0" prefWidth="100.0" text="About" textFill="WHITE">
+         <styleClass>
+            <String fx:value="radius" />
+            <String fx:value="button-color" />
+         </styleClass>
+      </Button>
+      <FontAwesomeIconView fx:id="codeIcon" fill="WHITE" glyphName="CODE" layoutX="152.0" layoutY="349.0" onMouseClicked="#aboutMouse" size="34" />
+   </children>
+</AnchorPane>

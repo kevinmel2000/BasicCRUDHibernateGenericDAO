@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 16, 2015 9:15:55 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="identitas" name="com.eby.orm.entity.Mahasiswa" optimistic-lock="version" table="mahasiswa">
+    <id name="nim" type="string">
+      <column length="12" name="nim"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="com.eby.orm.entity.Dosen" fetch="select" name="dosen">
+      <column name="nip_dosen" not-null="true"/>
+    </many-to-one>
+    <property name="nama" type="string">
+      <column length="45" name="nama"/>
+    </property>
+    <property name="kelas" type="string">
+      <column length="45" name="kelas"/>
+    </property>
+    <property name="alamat" type="string">
+      <column length="45" name="alamat"/>
+    </property>
+    <property name="tglLahir" type="string">
+      <column length="12" name="tgl_lahir"/>
+    </property>
+  </class>
+</hibernate-mapping>
