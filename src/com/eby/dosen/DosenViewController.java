@@ -90,6 +90,7 @@ public class DosenViewController implements Initializable {
         if (index != -1) {
             //table model membaca data yang diklik
             Dosen d = tableModel.getItem().get(index);
+            //mengambil data dari class entity dan mengesetnya agar tampil di textfield
             txtNIP.setText(String.valueOf(d.getNip()));
             txtNama.setText(d.getNama());
             txtAlamat.setText(d.getAlamat());
@@ -101,6 +102,7 @@ public class DosenViewController implements Initializable {
 
     @FXML
     private void tambahAction(ActionEvent event) {
+        //Membuat variabel untuk memudahkan melakukan kondisi
         String nip = txtNIP.getText();
         String nama = txtNama.getText();
         String alamat = txtAlamat.getText();
@@ -109,7 +111,9 @@ public class DosenViewController implements Initializable {
         if (nip.equals("") || nama.equals("") || alamat.equals("") || ajar.equals("")) {
             con.dialog(Alert.AlertType.WARNING, "data tidak boleh kosong !", null);
         } else {
+            //mengambil data dari variabel nip, nama, alamat, dan ajar untuk disimpan 
             Dosen d = new Dosen(Integer.valueOf(nip), nama, alamat, ajar, null);
+            //melakukan proses penyimpanan
             model.save(d);
             con.dialog(Alert.AlertType.INFORMATION, "Data sudah disimpan", null);
             reset();
@@ -128,6 +132,7 @@ public class DosenViewController implements Initializable {
             con.dialog(Alert.AlertType.WARNING, "data tidak boleh kosong !", null);
         } else {
             Dosen d = new Dosen(Integer.valueOf(nip), nama, alamat, ajar, null);
+            //melakuakan proses update
             model.update(d);
             con.dialog(Alert.AlertType.INFORMATION, "Data sudah diupdate", null);
             reset();
@@ -196,7 +201,7 @@ public class DosenViewController implements Initializable {
         new FadeOutRightTransition(tableDosen).play();
         new FadeOutRightTransition(txtClose).play();
     }
-    
+
     //Mengeset controller yang akan dipakai oleh model
     private void initModel() {
         model = new DosenModel();

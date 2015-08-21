@@ -91,6 +91,7 @@ public class MainMenuViewController implements Initializable {
         show();
     }
 
+    //Menyembunyikan tombol-tombol menu dan membuatnya tidak aktif
     public void visibleOff() {
         btDosen.setVisible(false);
         btMahasiswa.setVisible(false);
@@ -102,6 +103,7 @@ public class MainMenuViewController implements Initializable {
         inActive();
     }
 
+    //Menampilkan tombol-tombol menu
     public void visibleOn() {
         btDosen.setVisible(true);
         btMahasiswa.setVisible(true);
@@ -112,6 +114,7 @@ public class MainMenuViewController implements Initializable {
         codeIcon.setVisible(true);
     }
 
+    //Animasi tombol masuk dari sisi kiri
     public void show() {
         visibleOn();
         active();
@@ -124,6 +127,7 @@ public class MainMenuViewController implements Initializable {
         new FadeInLeftTransition(codeIcon).play();
     }
 
+    //animasi tombol disembunyikan ke sisi kiri
     public void hide() {
         inActive();
         new FadeOutLeftTransition(btMahasiswa).play();
@@ -135,6 +139,7 @@ public class MainMenuViewController implements Initializable {
         new FadeOutLeftTransition(codeIcon).play();
     }
 
+    //membuat tombol ridak aktif setelah di hide
     public void inActive() {
         codeIcon.setDisable(true);
         btAbout.setDisable(true);
@@ -145,6 +150,7 @@ public class MainMenuViewController implements Initializable {
         hideIcon.setDisable(true);
     }
 
+    //membuat tombol aktif setelah di show
     public void active() {
         codeIcon.setDisable(false);
         btAbout.setDisable(false);
@@ -174,11 +180,13 @@ public class MainMenuViewController implements Initializable {
 
     @FXML
     private void aboutAction(ActionEvent event) {
+        //load tampilan About.fxml
         con.loadAnchorPane(paneView, "/about/About.fxml");
     }
 
     @FXML
     private void aboutMouse(MouseEvent event) {
+        //load tampilan About.fxml
         con.loadAnchorPane(paneView, "/about/About.fxml");
     }
 
