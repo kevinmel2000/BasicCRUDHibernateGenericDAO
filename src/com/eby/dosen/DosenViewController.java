@@ -68,6 +68,7 @@ public class DosenViewController implements Initializable {
     private FontAwesomeIconView hapusIcon;
     @FXML
     private Text txtClose;
+    
     private DosenTableModel tableModel;
     private DosenModel model;
     private Config con;
