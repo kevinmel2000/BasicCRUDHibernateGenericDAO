@@ -68,7 +68,7 @@ public class DosenViewController implements Initializable {
     private FontAwesomeIconView hapusIcon;
     @FXML
     private Text txtClose;
-    
+
     private DosenTableModel tableModel;
     private DosenModel model;
     private Config con;
@@ -145,18 +145,22 @@ public class DosenViewController implements Initializable {
     private void hapusAction(ActionEvent event) {
         //mendeteksi index pada tableDosen dengan melakukan klik pada cell
         int index = tableDosen.getSelectionModel().getSelectedIndex();
-        if (index != -1) {
-            //mengambil index tersebut dan memasukkan kedalam object
-            Dosen d = tableModel.getItem().get(index);
-            //Melakukan proses hapus object yang berisi index
-            model.delete(d);
-            con.dialog(Alert.AlertType.INFORMATION, "data berhasil dihapus", null);
-            //reset ulang textfield
-            reset();
-            //menampilkan data terbaru setelah proses hapus
-            loadData();
-        } else {
-            con.dialog(Alert.AlertType.WARNING, "pilih data", null);
+        try {
+            if (index != -1) {
+                //mengambil index tersebut dan memasukkan kedalam object
+                Dosen d = tableModel.getItem().get(index);
+                //Melakukan proses hapus object yang berisi index
+                model.delete(d);
+                con.dialog(Alert.AlertType.INFORMATION, "data berhasil dihapus", null);
+                //reset ulang textfield
+                reset();
+                //menampilkan data terbaru setelah proses hapus
+                loadData();
+            } else {
+                con.dialog(Alert.AlertType.WARNING, "pilih data", null);
+            }
+        } catch (Exception e) {
+            System.out.println("error bro !!!");
         }
 
     }

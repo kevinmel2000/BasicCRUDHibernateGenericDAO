@@ -27,18 +27,27 @@ public class GenericDAO {
 
     public <T> T save(final T o) {
         Session session = sessionFactory.openSession();
-        session.beginTransaction();
-        session.save(o);
-        session.getTransaction().commit();
+        try {
+            session.beginTransaction();
+            session.save(o);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+        }
         return o;
     }
 
     public void delete(final Object object) {
         Session session = sessionFactory.getCurrentSession();
-        session.getTransaction().begin();
-        Object object1 = session.merge(object);
-        session.delete(object1);
-        session.getTransaction().commit();
+        try {
+            session.getTransaction().begin();
+            Object object1 = session.merge(object);
+            session.delete(object1);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+        }
+
     }
 
     /**
@@ -57,10 +66,14 @@ public class GenericDAO {
      */
     public void update(final Object o) {
         Session session = sessionFactory.getCurrentSession();
-        session.getTransaction().begin();
-        Object object = session.merge(o);
-        session.update(object);
-        session.getTransaction().commit();
+        try {
+            session.getTransaction().begin();
+            Object object1 = session.merge(o);
+            session.update(object1);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+        }
     }
 
     /**
@@ -68,10 +81,14 @@ public class GenericDAO {
      */
     public void saveOrUpdate(final Object o) {
         Session session = sessionFactory.getCurrentSession();
-        session.getTransaction().begin();
-        Object object = session.merge(o);
-        session.saveOrUpdate(object);
-        session.getTransaction().commit();
+        try {
+            session.getTransaction().begin();
+            Object object1 = session.merge(o);
+            session.saveOrUpdate(object1);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+        }
     }
 
     public <T> List<T> getAll(final Class<T> type) {
