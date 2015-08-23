@@ -9,11 +9,9 @@ import com.eby.orm.utils.HibernateUtils;
 import java.util.List;
 import javax.annotation.Resource;
 import org.hibernate.Criteria;
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.MatchMode;
-import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
 /**
@@ -27,26 +25,18 @@ public class GenericDAO {
 
     public <T> T save(final T o) {
         Session session = sessionFactory.openSession();
-        try {
-            session.beginTransaction();
-            session.save(o);
-            session.getTransaction().commit();
-        } catch (Exception e) {
-            session.getTransaction().rollback();
-        }
+        session.beginTransaction();
+        session.save(o);
+        session.getTransaction().commit();
         return o;
     }
 
     public void delete(final Object object) {
         Session session = sessionFactory.getCurrentSession();
-        try {
-            session.getTransaction().begin();
-            Object object1 = session.merge(object);
-            session.delete(object1);
-            session.getTransaction().commit();
-        } catch (Exception e) {
-            session.getTransaction().rollback();
-        }
+        session.getTransaction().begin();
+        Object object1 = session.merge(object);
+        session.delete(object1);
+        session.getTransaction().commit();
 
     }
 
@@ -66,14 +56,10 @@ public class GenericDAO {
      */
     public void update(final Object o) {
         Session session = sessionFactory.getCurrentSession();
-        try {
-            session.getTransaction().begin();
-            Object object1 = session.merge(o);
-            session.update(object1);
-            session.getTransaction().commit();
-        } catch (Exception e) {
-            session.getTransaction().rollback();
-        }
+        session.getTransaction().begin();
+        Object object1 = session.merge(o);
+        session.update(object1);
+        session.getTransaction().commit();
     }
 
     /**
@@ -81,14 +67,11 @@ public class GenericDAO {
      */
     public void saveOrUpdate(final Object o) {
         Session session = sessionFactory.getCurrentSession();
-        try {
-            session.getTransaction().begin();
-            Object object1 = session.merge(o);
-            session.saveOrUpdate(object1);
-            session.getTransaction().commit();
-        } catch (Exception e) {
-            session.getTransaction().rollback();
-        }
+        session.getTransaction().begin();
+        Object object1 = session.merge(o);
+        session.saveOrUpdate(object1);
+        session.getTransaction().commit();
+
     }
 
     public <T> List<T> getAll(final Class<T> type) {
