@@ -15,9 +15,6 @@ import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -25,9 +22,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -36,9 +30,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
-import javafx.util.Callback;
 import javafx.util.converter.LocalDateStringConverter;
-import org.hibernate.metamodel.domain.Superclass;
 
 /**
  * FXML Controller class
@@ -46,7 +38,7 @@ import org.hibernate.metamodel.domain.Superclass;
  * @author eby
  */
 public class MhsViewController implements Initializable {
-
+    
     @FXML
     private GridPane gridPane;
     @FXML
@@ -104,7 +96,7 @@ public class MhsViewController implements Initializable {
             });
         });
     }
-
+    
     @FXML
     private void tableClicked(MouseEvent event) {
         int index = tableMhs.getSelectionModel().getSelectedIndex();
@@ -116,12 +108,12 @@ public class MhsViewController implements Initializable {
             txtAlamat.setText(m.getAlamat());
             LocalDateStringConverter ld = new LocalDateStringConverter();
             dateLahir.setValue(ld.fromString(m.getTglLahir()));
-            cbDosen.getSelectionModel().isSelected(m.getDosen().getNip());
+            cbDosen.getSelectionModel().select(m.getDosen().getNama());
         } else {
             System.out.println("index -1, pilih data");
         }
     }
-
+    
     @FXML
     private void tambahAction(ActionEvent event) {
         String nim = txtNIM.getText();
@@ -132,7 +124,7 @@ public class MhsViewController implements Initializable {
         LocalDateStringConverter ld = new LocalDateStringConverter();
         String tglLahir = ld.toString(dateLahir.getValue());
         int dosen = cbDosen.getSelectionModel().getSelectedIndex();
-
+        
         if (nim.equals("") || nama.equals("") || kelas.equals("") || alamat.equals("") || tglLahir.isEmpty() || dosen == -1) {
             con.dialog(Alert.AlertType.WARNING, "data tidak boleh kosong", null);
         } else {
@@ -147,9 +139,9 @@ public class MhsViewController implements Initializable {
             loadComboBox();
             reset();
         }
-
+        
     }
-
+    
     @FXML
     private void ubahAction(ActionEvent event) {
         String nim = txtNIM.getText();
@@ -159,7 +151,7 @@ public class MhsViewController implements Initializable {
         LocalDateStringConverter ld = new LocalDateStringConverter();
         String tglLahir = ld.toString(dateLahir.getValue());
         int dosen = cbDosen.getSelectionModel().getSelectedIndex();
-
+        
         if (nim.equals("") || nama.equals("") || kelas.equals("") || alamat.equals("") || tglLahir.isEmpty() || dosen == -1) {
             con.dialog(Alert.AlertType.WARNING, "data tidak boleh kosong", null);
         } else {
@@ -173,7 +165,7 @@ public class MhsViewController implements Initializable {
             reset();
         }
     }
-
+    
     @FXML
     private void hapusAction(ActionEvent event) {
         int index = tableMhs.getSelectionModel().getSelectedIndex();
@@ -188,7 +180,7 @@ public class MhsViewController implements Initializable {
             con.dialog(Alert.AlertType.WARNING, "Pilih data", null);
         }
     }
-
+    
     @FXML
     private void onKeyReleased(KeyEvent event) {
         String key = txtCari.getText();
@@ -200,12 +192,12 @@ public class MhsViewController implements Initializable {
             tableModel.getItem().addAll(model.findData(key));
         }
     }
-
+    
     @FXML
     private void closeAction(MouseEvent event) {
         this.fadeOut();
     }
-
+    
     public void fadeIn() {
         new FadeInLeftTransition(gridPane).play();
         new FadeInLeftTransition(btTambah).play();
@@ -220,9 +212,9 @@ public class MhsViewController implements Initializable {
 //        new FadeInLeftTransition(paneView).play();
         new FadeInLeftTransition(txtClose).play();
     }
-
+    
     public void fadeOut() {
-
+        
         new FadeOutRightTransition(gridPane).play();
         new FadeOutRightTransition(btTambah).play();
         new FadeOutRightTransition(btUbah).play();
@@ -235,45 +227,45 @@ public class MhsViewController implements Initializable {
         new FadeOutRightTransition(tableMhs).play();
         new FadeOutRightTransition(paneView).play();
         new FadeOutRightTransition(txtClose).play();
-
+        
     }
-
+    
     private void initModel() {
         model = new MhsModel();
         model.setController(this);
     }
-
+    
     private void initTable() {
         tableModel = new MhsTableModel();
         tableMhs.getColumns().addAll(tableModel.getAllColumn());
         tableMhs.setItems(tableModel.getItem());
         tableModel.getItem().addAll(model.list());
     }
-
+    
     public void initComboBox() {
         comboBoxModel = new MhsComboBoxModel();
         cbDosen.setItems(comboBoxModel.getItems());
         comboBoxModel.add(model.listDosen());
     }
-
+    
     public void loadData() {
         tableModel.getItem().remove(0, tableModel.getItem().size());
         tableMhs.setItems(tableModel.getItem());
         tableModel.getItem().addAll(model.list());
     }
-
+    
     public void loadComboBox() {
         comboBoxModel.getItems().remove(0, comboBoxModel.getItems().size());
         cbDosen.setItems(comboBoxModel.getItems());
         comboBoxModel.add(model.listDosen());
     }
-
+    
     public void reset() {
         txtNIM.setText("");
         txtNama.setText("");
         txtKelas.setText("");
         txtAlamat.setText("");
         dateLahir.setValue(null);
-        cbDosen.getSelectionModel().select(-1);
+        cbDosen.getSelectionModel().clearSelection();
     }
 }
